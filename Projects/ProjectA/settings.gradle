@@ -1,5 +1,5 @@
 rootProject.name='ProjectA'
-include ':app_a', ':component_base'
+include ':app_a', ':component_base', ':component_base_a'
 
 
 

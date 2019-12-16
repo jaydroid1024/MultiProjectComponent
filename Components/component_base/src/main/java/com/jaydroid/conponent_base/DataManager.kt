@@ -6,11 +6,11 @@ package com.jaydroid.conponent_base
  * @date 2019-12-16 16:41
  * @version 1.0
  */
-object DataManager {
+open class DataManager {
     /**
      * 获取登录信息
      */
-    fun loginRequest(): String {
+    open fun loginRequest(): String {
         return "Jay"
     }
 }
