@@ -1,0 +1,13 @@
+rootProject.name='ProjectA'
+include ':app'
+/**
+ * 公共组件
+ * 其中 new File(settingsDir,'../../BProject/')
+ * 参数说明：
+ * 参数一： settingsDir 指的是相对于 settings.gradle 文件所在路径
+ * 参数二： 填写被依赖项目的路径，**../**表示上级目录，所以根据自己的路径修改
+ *
+ * 每个模块名称前面有个:，表示的是相对于当前主工程的根目录
+ */
+include ':component_login'
+project(':component_login').projectDir = new File('../../Components/component_login')

@@ -1,0 +1,5 @@
+/build
+*.iml
+*.license
+# mac file
+*.DS_Store
