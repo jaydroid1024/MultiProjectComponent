@@ -11,3 +11,9 @@ include ':app'
  */
 include ':component_login'
 project(':component_login').projectDir = new File('../../Components/component_login')
+
+/**
+ * component_base:公共业务组件
+ */
+include ':component_base'
+project(':component_base').projectDir = new File('../../Components/component_base')

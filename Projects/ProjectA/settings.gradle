@@ -1,5 +1,8 @@
 rootProject.name='ProjectA'
-include ':app'
+include ':app_a', ':component_base'
+
+
+
 /**
  * 公共组件
  * 其中 new File(settingsDir,'../../BProject/')
@@ -9,5 +12,15 @@ include ':app'
  *
  * 每个模块名称前面有个:，表示的是相对于当前主工程的根目录
  */
+
+/**
+ * component_login:公共登录组件
+ */
 include ':component_login'
 project(':component_login').projectDir = new File('../../Components/component_login')
+
+/**
+ * component_base:公共业务组件
+ */
+include ':component_base'
+project(':component_base').projectDir = new File('../../Components/component_base')
