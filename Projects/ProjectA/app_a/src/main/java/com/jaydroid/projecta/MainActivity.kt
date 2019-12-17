@@ -3,32 +3,31 @@ package com.jaydroid.projecta
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.alibaba.android.arouter.launcher.ARouter
+import com.jaydroid.component_base_a.arouter.ARouterPathForA
+import com.jaydroid.conponent_base.arouter.ARouterHelper
+import com.jaydroid.conponent_base.constant.Constants
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  * ARouter:path必须以'/'开头，并且包含多于2 '/'的内容!
- * Arouter:默认会用你申明的path的第一个/后面的字符用作group，不同组件之间的group不能相同
+ * ARouter:默认会用你R申明的path的第一个/后面的字符用作group，不同组件之间的group不能相同
  */
-@Route(path = "/app_a/path/home/activity")
+@Route(path = ARouterHelper.Path.HOME_ACTIVITY_PATH)
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         tv_login.setOnClickListener {
-            ARouter.getInstance()
-                .build("/component_login/path/login/activity")
-                .withString("from", "来自：ProjectA-MainActivity")
-                .navigation()
-
+            val map = ARouterHelper.getParamsMap(1)
+            map[Constants.MapKey.ID] = "数据来自：ProjectA-MainActivity"
+            ARouterHelper.routerTo(map, ARouterHelper.Path.LOGIN_ACTIVITY_PATH)
         }
 
         tv_detail.setOnClickListener {
-            ARouter.getInstance()
-                .build("/app_a/path/detail/activity")
-                .withString("from", "来自：ProjectA-MainActivity")
-                .navigation()
+            val map = ARouterHelper.getParamsMap(1)
+            map[Constants.MapKey.ID] = "数据来自：ProjectA-MainActivity"
+            ARouterHelper.routerTo(map, ARouterPathForA.DETAIL_ACTIVITY_PATH)
         }
     }
 }

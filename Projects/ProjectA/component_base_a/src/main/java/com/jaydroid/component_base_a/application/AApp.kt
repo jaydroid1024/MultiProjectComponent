@@ -1,4 +1,4 @@
-package com.jaydroid.projecta
+package com.jaydroid.component_base_a.application
 
 import android.app.Application
 

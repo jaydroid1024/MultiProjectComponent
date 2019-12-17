@@ -5,9 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.jaydroid.component_base_a.arouter.ARouterPathForA
 import kotlinx.android.synthetic.main.activity_details.*
 
-@Route(path = "/app_a/path/detail/activity")
+@Route(path = ARouterPathForA.DETAIL_ACTIVITY_PATH)
 class DetailsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

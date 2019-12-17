@@ -6,6 +6,11 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
 
 android {
     compileSdkVersion 29
@@ -42,13 +47,14 @@ dependencies {
          * 使用 runtimeOnly 依赖业务组件, 可实现业务组件的代码在编译时对宿主 App 不可见, 仅在运行时对宿主 App 可见
          */
         //登录组件
-        runtimeOnly project(path: ':component_login')
-    } else {
-        // Arouter 放在最底层的组件中统一依赖
-        implementation('com.alibaba:arouter-api:1.4.0') {
-            exclude group: 'com.android.support'
-        }
+        implementation project(path: ':component_login')
     }
+
+    /**
+     * ProjectA的公共业务组件
+     */
+    implementation project(path: ':component_base_a')
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
