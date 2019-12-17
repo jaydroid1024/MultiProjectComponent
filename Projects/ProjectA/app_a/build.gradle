@@ -34,11 +34,21 @@ android {
 }
 
 dependencies {
-    /**
-     * 登录组件
-     */
-    implementation project(path: ':component_login')
 
+    //继承调试
+    if (!isBuildModule.toBoolean()) {
+        /**
+         * 在宿主 App 中使用 implementation 依赖业务组件, 业务组件的代码就会完全暴露给宿主 App, 不利于代码的隔离
+         * 使用 runtimeOnly 依赖业务组件, 可实现业务组件的代码在编译时对宿主 App 不可见, 仅在运行时对宿主 App 可见
+         */
+        //登录组件
+        runtimeOnly project(path: ':component_login')
+    } else {
+        // Arouter 放在最底层的组件中统一依赖
+        implementation('com.alibaba:arouter-api:1.4.0') {
+            exclude group: 'com.android.support'
+        }
+    }
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -50,4 +60,5 @@ dependencies {
 
     //arouter-compiler 的注解依赖需要所有使用 ARouter 的 model 都添加依赖
     kapt 'com.alibaba:arouter-compiler:1.2.2'
+
 }
