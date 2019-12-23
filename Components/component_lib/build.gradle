@@ -1,7 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
 android {
     //给 Module 内的资源名增加前缀, 避免资源名冲突
     resourcePrefix "${project.name.toLowerCase().replaceAll("-", "_")}_"
@@ -17,13 +16,6 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
-
-        //Arouter
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
-            }
-        }
     }
 
     buildTypes {
@@ -44,11 +36,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    //arouter-compiler 的注解依赖需要所有使用 ARouter 的 model 都添加依赖
-    kapt 'com.alibaba:arouter-compiler:1.2.2'
-
-    /**
-     * 基础功能组件
-     */
-    api project(path: ':component_lib')
+    // Arouter 放在最底层的组件中统一依赖
+    api'com.alibaba:arouter-api:1.5.0'
 }

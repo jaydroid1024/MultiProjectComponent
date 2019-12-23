@@ -47,7 +47,7 @@ dependencies {
     /**
      * ProjectB公共业务组件
      */
-    implementation project(path: ':component_base_b')
+    implementation project(path: ':components:component_base_b')
 
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
