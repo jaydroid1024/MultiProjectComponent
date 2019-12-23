@@ -1,9 +1,9 @@
-package com.jaydroid.projectb
+package com.jaydroid.component_base_b.application
 
 import android.app.Application
 
 import com.alibaba.android.arouter.launcher.ARouter
-import com.jaydroid.projectb.BuildConfig
+import com.jaydroid.conponent_base.BuildConfig
 
 /**
  * Description: Application
@@ -12,7 +12,7 @@ import com.jaydroid.projectb.BuildConfig
  * @version 1.0
  * @date 2019-09-10
  */
-class AApp : Application() {
+class BApp : Application() {
 
     private lateinit var application: Application
 

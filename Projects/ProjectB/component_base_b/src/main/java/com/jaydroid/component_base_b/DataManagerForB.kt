@@ -1,17 +1,17 @@
-package com.jaydroid.component_base_a
+package com.jaydroid.component_base_b
 
 /**
- * ProjectA数据管理类
+ * ProjectB数据管理类
  * @author wangxuejie
  * @date 2019-12-16 16:41
  * @version 1.0
  */
-object DataManagerForA {
+object DataManagerForB {
     /**
      * 获取登录信息
      */
     fun loginRequest(): String {
 //        val loginInfo = DataManager.loginRequest()
-        return "Jay-ProjectA"
+        return "Jay-ProjectB"
     }
 }

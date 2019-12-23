@@ -1,5 +1,5 @@
 rootProject.name='ProjectB'
-include ':app'
+include ':app', ':component_base_b'
 /**
  * 公共组件
  * 其中 new File(settingsDir,'../../BProject/')

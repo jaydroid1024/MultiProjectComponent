@@ -1,4 +1,4 @@
-//
+//使用config.gradle统一管理项目的依赖库
 apply from: "config.gradle"
 buildscript {
     ext.kotlin_version = '1.3.50'

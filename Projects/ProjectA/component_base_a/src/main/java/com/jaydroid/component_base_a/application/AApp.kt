@@ -3,6 +3,7 @@ package com.jaydroid.component_base_a.application
 import android.app.Application
 
 import com.alibaba.android.arouter.launcher.ARouter
+import com.jaydroid.conponent_base.BuildConfig
 
 /**
  * Description: Application
