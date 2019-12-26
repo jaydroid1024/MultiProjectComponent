@@ -6,6 +6,9 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+apply plugin: 'appinit-plugin'
+
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -19,7 +22,12 @@ android {
         //Arouter
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+                if (arguments == null) {
+                    arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+                } else {
+                    arguments.put("AROUTER_MODULE_NAME", project.getName())
+                    arguments.put("AROUTER_GENERATE_DOC", "enable")
+                }
             }
         }
     }

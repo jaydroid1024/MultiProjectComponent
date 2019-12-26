@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'appinit-plugin'
 android {
     //给 Module 内的资源名增加前缀, 避免资源名冲突
     resourcePrefix "${project.name.toLowerCase().replaceAll("-", "_")}_"
@@ -21,7 +22,12 @@ android {
         //Arouter
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+                if (arguments == null) {
+                    arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+                } else {
+                    arguments.put("AROUTER_MODULE_NAME", project.getName())
+                    arguments.put("AROUTER_GENERATE_DOC", "enable")
+                }
             }
         }
     }
