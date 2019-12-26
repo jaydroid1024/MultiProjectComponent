@@ -14,11 +14,11 @@ import com.jaydroid.conponent_base.BuildConfig
  */
 class BApp : Application() {
 
-    private lateinit var application: Application
 
     override fun onCreate() {
         super.onCreate()
-        application = this
+
+        instance = this
 
         initRouter()
     }
@@ -37,6 +37,18 @@ class BApp : Application() {
             ARouter.printStackTrace()
         }
         // 尽可能早，推荐在Application中初始化
-        ARouter.init(application)
+        ARouter.init(instance)
+    }
+
+    companion object {
+
+        private val TAG = BApp::class.java.simpleName
+
+        /**
+         * 获取应用类实例
+         *
+         * @return BApp
+         */
+        var instance: BApp? = null
     }
 }

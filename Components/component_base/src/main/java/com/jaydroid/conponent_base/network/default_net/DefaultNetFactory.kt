@@ -2,7 +2,6 @@ package com.jaydroid.conponent_base.network.default_net
 
 import android.app.Application
 
-
 /**
  *
  * @author wangxuejie
