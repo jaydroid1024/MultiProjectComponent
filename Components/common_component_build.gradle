@@ -19,13 +19,17 @@ android {
     buildToolsVersion rootProject.ext.android["buildToolsVersion"]
 
     defaultConfig {
+        // 单独调试时添加 applicationId ，集成调试时移除
+        if (isBuildModule.toBoolean()) {
+            applicationId "com.component.${project.name.toLowerCase()}"
+        }
         minSdkVersion rootProject.ext.android["minSdkVersion"]
         targetSdkVersion rootProject.ext.android["targetSdkVersion"]
         versionCode rootProject.ext.android["versionCode"]
         versionName rootProject.ext.android["versionName"]
         testInstrumentationRunner rootProject.ext.dependencies["androidJUnitRunner"]
 
-        //Arouter
+        //ARouter
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
@@ -73,7 +77,7 @@ android {
             } else {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
                 java {
-                    //继承编译时剔除 debug 目录
+                    //继承编译时剔除debug目录
                     exclude '**/debug/**'
                 }
             }
@@ -89,7 +93,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
     //arouter-compiler 的注解依赖需要所有使用 ARouter 的 model 都添加依赖
     kapt 'com.alibaba:arouter-compiler:1.2.2'
 

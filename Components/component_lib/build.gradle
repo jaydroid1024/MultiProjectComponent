@@ -37,5 +37,19 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     // Arouter 放在最底层的组件中统一依赖
-    api'com.alibaba:arouter-api:1.5.0'
+    api rootProject.ext.dependencies["arouter"]
+    //
+    api rootProject.ext.dependencies["retrofit"]
+    //
+    api rootProject.ext.dependencies["retrofit-converter-gson"]
+    //
+    api rootProject.ext.dependencies["retrofit-adapter-rxjava2"]
+    //
+    api rootProject.ext.dependencies["okhttp3"]
+    //
+    api rootProject.ext.dependencies["logging-interceptor"]
+    //
+    debugApi rootProject.ext.dependencies["chuck"]
+    //
+    releaseApi rootProject.ext.dependencies["chuck-no-op"]
 }
