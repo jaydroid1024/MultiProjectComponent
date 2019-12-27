@@ -29,6 +29,24 @@ class BApp : Application() {
     }
 
 
+    /**
+     *SimpleAppInit 方法说明
+     * 所有方法都是可选的，都只会运行在你注册的进程
+     * boolean needAsyncInit()	是否需要异步初始化，默认为 false
+     * void asyncOnCreate()	Application#onCreate() 时异步调用
+     * void onCreate()	Application#onCreate() 时同步调用
+     * void onConfigurationChanged(Configuration newConfig)	Application#onConfigurationChanged(Configuration) 时调用
+     * void onLowMemory()	Application#onLowMemory() 时调用
+     * void onTerminate()	Application#onTerminate() 时调用
+     * void onTrimMemory(int level)	Application#onTrimMemory(int) 时调用
+     *
+     *AppInit 注解属性说明
+     * description	初始化的描述信息
+     * aheadOf	在指定初始化项之前初始化，用于整个项目范围内重新排序。生成规则为「模块唯一标识:初始化SimpleName」	""
+     * onlyForDebug	初始化是否仅在 debug 时可用	false
+     * process	在哪个进程初始化。可选值为 Process.MAIN（主进程）、Process.ALL（所有进程）、Process.OTHER（其他进程）	Process.MAIN（主进程）
+     * priority	模块内部范围内初始化类的优先级，值越小越先初始化
+     */
     private fun initAppInit() {
         val TAG_APP_INIT = "AppInit"
         AppInitManager.get().init(this, object : SimpleAppInitCallback() {

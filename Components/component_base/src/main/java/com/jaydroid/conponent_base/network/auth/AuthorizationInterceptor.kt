@@ -1,11 +1,10 @@
 package com.jaydroid.conponent_base.network.auth
 
-import java.io.IOException
-
 import okhttp3.Headers
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
+import java.io.IOException
 
 /**
  * Created by taufiqotulfaidah on 12/21/17.
@@ -23,7 +22,6 @@ class AuthorizationInterceptor(private val listener: HeaderListener?) : Intercep
 
     private fun addHeaderAuth(oriRequest: Request): Request {
         return oriRequest.newBuilder()
-            .addHeader("", "")
             .build()
     }
 

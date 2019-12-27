@@ -1,9 +1,7 @@
 package com.jaydroid.conponent_base.network.auth
 
 import android.content.Context
-
 import com.jaydroid.component_lib.net.AbstractNetwork
-
 import okhttp3.Headers
 import okhttp3.OkHttpClient
 
@@ -15,8 +13,6 @@ import okhttp3.OkHttpClient
 abstract class AuthAbstractNetwork<T>(context: Context) : AbstractNetwork<T>(context),
     AuthorizationInterceptor.HeaderListener {
 
-    protected val tokenInHeaderResponse: String? = null
-
     private val authInterceptor: AuthorizationInterceptor
         get() = AuthorizationInterceptor(this)
 
@@ -25,6 +21,8 @@ abstract class AuthAbstractNetwork<T>(context: Context) : AbstractNetwork<T>(con
         return super.okHttpClientHandler(builder)
     }
 
-    override fun onHeaderUpdated(headers: Headers) {}
+    override fun onHeaderUpdated(headers: Headers) {
+
+    }
 
 }

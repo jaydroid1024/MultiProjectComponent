@@ -49,6 +49,8 @@ dependencies {
     //
     api rootProject.ext.dependencies["logging-interceptor"]
     //
+    api rootProject.ext.dependencies["logger"]
+    //
     debugApi rootProject.ext.dependencies["chuck"]
     //
     releaseApi rootProject.ext.dependencies["chuck-no-op"]

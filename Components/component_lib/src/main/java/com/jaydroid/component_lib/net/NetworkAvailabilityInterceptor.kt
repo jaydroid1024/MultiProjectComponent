@@ -17,6 +17,7 @@ class NetworkAvailabilityInterceptor(private val context: Context) : Interceptor
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request()
         if (!Connectivity.hasNetwork(context)) {
+
         }
         return chain.proceed(request)
     }

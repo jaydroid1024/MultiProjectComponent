@@ -1,5 +1,6 @@
 package com.jaydroid.conponent_base.network.default_net
 
+import android.annotation.SuppressLint
 import android.app.Application
 
 /**
@@ -8,8 +9,20 @@ import android.app.Application
  * @date 2019-12-25 17:51
  * @version 1.0
  */
-class DefaultNetFactory {
+object DefaultNetFactory {
 
+    /**
+     * 获取应用类实例
+     *
+     * @return Application
+     */
+    lateinit var application: Application
+
+    fun initialize(app: Application) {
+        application = app
+    }
+
+    @SuppressLint("StaticFieldLeak")
     var defaultNetwork: DefaultNetwork? = null
         @Synchronized
         get() {
@@ -18,16 +31,6 @@ class DefaultNetFactory {
             }
             return field
         }
-
-    companion object {
-        /**
-         * 获取应用类实例
-         *
-         * @return Application
-         */
-        lateinit var application: Application
-
-    }
 
 
 }
