@@ -1,14 +1,18 @@
 package com.jaydroid.component_base_b.application
 
 import android.app.Application
+import android.content.Context
+import android.content.res.Configuration
 import android.util.Log
 import com.alibaba.android.arouter.launcher.ARouter
 import com.jaydroid.conponent_base.BuildConfig
+import com.jaydroid.conponent_base.app.delegate.ApplicationDelegate
 import com.sankuai.erp.component.appinit.api.AppInitApiUtils
 import com.sankuai.erp.component.appinit.api.AppInitManager
 import com.sankuai.erp.component.appinit.api.SimpleAppInitCallback
 import com.sankuai.erp.component.appinit.common.AppInitItem
 import com.sankuai.erp.component.appinit.common.ChildInitTable
+
 
 /**
  * Description: Application
@@ -19,13 +23,17 @@ import com.sankuai.erp.component.appinit.common.ChildInitTable
  */
 class BApp : Application() {
 
+    private var applicationDelegate: ApplicationDelegate? = null
+
+
     override fun onCreate() {
         super.onCreate()
+        instance = this
+        initRouter()
+
         initAppInit()
 
-        instance = this
 
-        initRouter()
     }
 
 
@@ -105,8 +113,7 @@ class BApp : Application() {
                 Log.d(TAG_APP_INIT, "初始化信息, $initLogInfo")
             }
 
-        });
-
+        })
     }
 
     /**
@@ -124,6 +131,33 @@ class BApp : Application() {
         }
         // 尽可能早，推荐在Application中初始化
         ARouter.init(instance)
+    }
+
+    override fun attachBaseContext(base: Context) {
+        super.attachBaseContext(base)
+        //appInit的替代方案
+//        applicationDelegate = ApplicationDelegate(base)
+//        applicationDelegate?.attachBaseContext(base)
+    }
+
+    override fun onTerminate() {
+        super.onTerminate()
+        AppInitManager.get().onTerminate()
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        AppInitManager.get().onConfigurationChanged(newConfig)
+    }
+
+    override fun onLowMemory() {
+        super.onLowMemory()
+        AppInitManager.get().onLowMemory()
+    }
+
+    override fun onTrimMemory(level: Int) {
+        super.onTrimMemory(level)
+        AppInitManager.get().onTrimMemory(level)
     }
 
     companion object {

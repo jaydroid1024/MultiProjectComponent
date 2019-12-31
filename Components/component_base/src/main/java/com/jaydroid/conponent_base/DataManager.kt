@@ -4,7 +4,6 @@ import android.util.Log
 import com.jaydroid.conponent_base.network.bean.Repo
 import com.jaydroid.conponent_base.network.default_net.DefaultNetFactory
 import io.reactivex.observers.DisposableObserver
-import io.reactivex.schedulers.Schedulers
 import org.reactivestreams.Subscriber
 import org.reactivestreams.Subscription
 import retrofit2.Call
@@ -33,26 +32,24 @@ object DataManager {
     }
 
     private fun getListRepos() {
-        DefaultNetFactory.defaultNetwork
-            ?.getListRepos("Jay-Droid")
-            ?.subscribeOn(Schedulers.newThread())
-            ?.observeOn(Schedulers.newThread())
-            ?.subscribe(object : Subscriber<List<Repo>> {
+        DefaultNetFactory.getDefaultNet()
+            .getListRepos("Jay-Droid")
+            .subscribe(object : Subscriber<List<Repo>> {
                 override fun onComplete() {
                     Log.d(TAG, "onComplete")
                 }
 
-                override fun onSubscribe(s: Subscription?) {
+                override fun onSubscribe(s: Subscription) {
                     Log.d(TAG, "onSubscribe")
                 }
 
-                override fun onNext(t: List<Repo>?) {
+                override fun onNext(t: List<Repo>) {
                     Log.d(TAG, "onNext")
                     Log.d(TAG, t?.get(0).toString())
 
                 }
 
-                override fun onError(t: Throwable?) {
+                override fun onError(t: Throwable) {
                     Log.d(TAG, "onError")
                     Log.d(TAG, t?.localizedMessage)
                 }
@@ -62,23 +59,21 @@ object DataManager {
 
 
     private fun getListRepos2() {
-        DefaultNetFactory.defaultNetwork
-            ?.getListRepos2("Jay-Droid")
-            ?.subscribeOn(Schedulers.newThread())
-            ?.observeOn(Schedulers.newThread())
-            ?.subscribe(object : DisposableObserver<List<Repo>>() {
+        DefaultNetFactory.getDefaultNet()
+            .getListRepos2("Jay-Droid")
+            .subscribe(object : DisposableObserver<List<Repo>>() {
                 override fun onComplete() {
                     Log.d(TAG, "onComplete")
                 }
 
 
-                override fun onNext(t: List<Repo>?) {
+                override fun onNext(t: List<Repo>) {
                     Log.d(TAG, "onNext")
                     Log.d(TAG, t?.get(0).toString())
 
                 }
 
-                override fun onError(t: Throwable?) {
+                override fun onError(t: Throwable) {
                     Log.d(TAG, "onError")
                     Log.d(TAG, t?.localizedMessage)
                 }
@@ -87,8 +82,9 @@ object DataManager {
     }
 
     private fun getListRepos3() {
-        DefaultNetFactory.defaultNetwork
-            ?.getListRepos3("Jay-Droid")?.enqueue(object : Callback<List<Repo>> {
+        DefaultNetFactory.getDefaultNet()
+            .getListRepos3("Jay-Droid")
+            .enqueue(object : Callback<List<Repo>> {
                 override fun onFailure(call: Call<List<Repo>>, t: Throwable) {
                     Log.d(TAG, "onError")
                     Log.d(TAG, t?.localizedMessage)

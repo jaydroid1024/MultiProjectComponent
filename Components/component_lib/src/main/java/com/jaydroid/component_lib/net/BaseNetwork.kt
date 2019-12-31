@@ -37,11 +37,11 @@ abstract class BaseNetwork<T> {
         this.networkService = retrofit.create(this.restClass)
     }
 
-    fun getNetworkService(): T? {
+    fun getNetworkService(): T {
         if (this.networkService == null) {
             this.initNetworkInterface()
         }
-        return this.networkService
+        return this.networkService!!
     }
 
     protected open fun okHttpClientHandler(builder: OkHttpClient.Builder): OkHttpClient.Builder {

@@ -45,6 +45,10 @@ dependencies {
     //
     api rootProject.ext.dependencies["retrofit-adapter-rxjava2"]
     //
+    api rootProject.ext.dependencies['rxandroid2']
+    //
+    api rootProject.ext.dependencies['rxjava2']
+    //
     api rootProject.ext.dependencies["okhttp3"]
     //
     api rootProject.ext.dependencies["logging-interceptor"]

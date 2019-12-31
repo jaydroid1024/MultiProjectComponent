@@ -61,6 +61,11 @@ dependencies {
      */
     implementation project(path: ':components:component_base_b')
 
+    /**
+     * ProjectB主业务组件
+     */
+    implementation project(path: ':components:component_main_b')
+
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"

@@ -1,6 +1,8 @@
 package com.jaydroid.conponent_base.app
 
+import android.app.Application
 import android.util.Log
+import com.jaydroid.component_lib.utils.util.Utils
 
 import com.jaydroid.conponent_base.network.default_net.DefaultNetFactory
 import com.sankuai.erp.component.appinit.api.SimpleAppInit
@@ -20,13 +22,28 @@ import com.sankuai.erp.component.appinit.common.AppInit
  * process	在哪个进程初始化。可选值为 Process.MAIN（主进程）、Process.ALL（所有进程）、Process.OTHER（其他进程）	Process.MAIN（主进程）
  * priority	模块内部范围内初始化类的优先级，值越小越先初始化
  */
-@AppInit(priority = 40, description = "BaseCommentInit")
+@AppInit(priority = 10, description = "BaseCommentInit")
 class BaseCommentInit : SimpleAppInit() {
+
     override fun onCreate() {
         Log.d("AppInit", "BaseCommentInit")
+        Utils.init(mApplication)
+        instance = mApplication
         // SimpleAppInit 中包含了 mApplication 和 mIsDebug 属性，可以直接在子类中使用
         DefaultNetFactory.initialize(mApplication)
 
 
+    }
+
+    companion object {
+
+        private val TAG = BaseCommentInit::class.java.simpleName
+
+        /**
+         * 获取应用类实例
+         *
+         * @return BApp
+         */
+        var instance: Application? = null
     }
 }

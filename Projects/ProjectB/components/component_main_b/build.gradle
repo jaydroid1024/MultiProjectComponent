@@ -1,0 +1,16 @@
+apply from: "../../common_component_build.gradle"
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+
+dependencies {
+
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    /**
+     * ProjectB 公共业务组件
+     */
+    implementation project(path: ':components:component_base_b')
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+}

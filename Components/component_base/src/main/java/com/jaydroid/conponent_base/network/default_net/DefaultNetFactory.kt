@@ -11,6 +11,9 @@ import android.app.Application
  */
 object DefaultNetFactory {
 
+    @SuppressLint("StaticFieldLeak")
+    var defaultNetwork: DefaultNetwork? = null
+
     /**
      * 获取应用类实例
      *
@@ -20,17 +23,16 @@ object DefaultNetFactory {
 
     fun initialize(app: Application) {
         application = app
+        getDefaultNet()
     }
 
-    @SuppressLint("StaticFieldLeak")
-    var defaultNetwork: DefaultNetwork? = null
-        @Synchronized
-        get() {
-            if (field == null) {
-                field = DefaultNetwork(application.applicationContext!!)
-            }
-            return field
+    @Synchronized
+    fun getDefaultNet(): DefaultNetwork {
+        if (defaultNetwork == null) {
+            defaultNetwork = DefaultNetwork(application.applicationContext!!)
         }
+        return defaultNetwork!!
+    }
 
 
 }

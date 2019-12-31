@@ -1,6 +1,9 @@
 package com.jaydroid.conponent_base.network.auth
 
 import android.content.Context
+import com.franmontiel.persistentcookiejar.PersistentCookieJar
+import com.franmontiel.persistentcookiejar.cache.SetCookieCache
+import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor
 import com.jaydroid.component_lib.net.AbstractNetwork
 import okhttp3.Headers
 import okhttp3.OkHttpClient
@@ -18,6 +21,12 @@ abstract class AuthAbstractNetwork<T>(context: Context) : AbstractNetwork<T>(con
 
     override fun okHttpClientHandler(builder: OkHttpClient.Builder): OkHttpClient.Builder {
         builder.addInterceptor(authInterceptor)
+        builder.cookieJar(
+            PersistentCookieJar(
+                SetCookieCache(),
+                SharedPrefsCookiePersistor(context)
+            )
+        )
         return super.okHttpClientHandler(builder)
     }
 

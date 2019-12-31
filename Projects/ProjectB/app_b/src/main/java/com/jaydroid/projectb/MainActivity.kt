@@ -6,7 +6,7 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.jaydroid.component_base_b.arouter.ARouterPathForB
 import com.jaydroid.conponent_base.arouter.ARouterHelper
-import com.jaydroid.conponent_base.arouter.service.LoginRouterService
+import com.jaydroid.conponent_base.arouter.service.user.UserService
 import com.jaydroid.conponent_base.constant.Constants
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -17,20 +17,21 @@ import kotlinx.android.synthetic.main.activity_main.*
 @Route(path = ARouterHelper.Path.HOME_ACTIVITY_PATH)
 class MainActivity : AppCompatActivity() {
 
-    var loginRouterService: LoginRouterService? = null
+    var userService: UserService? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        loginRouterService =
-            ARouter.getInstance().build(ARouterHelper.Path.LOGIN_SERVICE_PATH).navigation() as LoginRouterService?
-        tv_login.append("\n通过服务获取的登录信息为：${loginRouterService?.getLoginData()}")
+        userService =
+            ARouter.getInstance().build(ARouterHelper.Path.LOGIN_SERVICE_PATH).navigation() as UserService?
 
 
         tv_login.setOnClickListener {
-            val map = ARouterHelper.getParamsMap(1)
-            map[Constants.MapKey.ID] = "数据来自：ProjectB-MainActivity"
-            ARouterHelper.routerTo(map, ARouterHelper.Path.LOGIN_ACTIVITY_PATH)
+            //val map = ARouterHelper.getParamsMap(1)
+//            map[Constants.MapKey.ID] = "数据来自：ProjectB-MainActivity"
+//            ARouterHelper.routerTo(map, ARouterHelper.Path.LOGIN_ACTIVITY_PATH)
+
+            ARouterHelper.routerTo(ARouterHelper.Path.LOGIN_ACTIVITY_PATH)
         }
 
         tv_detail.setOnClickListener {
@@ -38,5 +39,12 @@ class MainActivity : AppCompatActivity() {
             map[Constants.MapKey.ID] = "数据来自：ProjectB-MainActivity"
             ARouterHelper.routerTo(map, ARouterPathForB.DETAIL_ACTIVITY_PATH)
         }
+    }
+
+    override fun onResume() {
+        tv_login.text = ""
+        tv_login.append("\n通过服务获取的登录信息为：${userService?.getUserInfo()?.username}")
+
+        super.onResume()
     }
 }

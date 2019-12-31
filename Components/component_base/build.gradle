@@ -62,4 +62,8 @@ dependencies {
      * 基础功能组件
      */
     api project(path: ':component_lib')
+
+    api rootProject.ext.dependencies['eventbus']
+    api rootProject.ext.dependencies['persistentcookiejar']
+    api rootProject.ext.dependencies['statusbar-util']
 }

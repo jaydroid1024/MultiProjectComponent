@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit
  * @version 1.0
  * @date 2019-12-24 17:18
  */
-abstract class AbstractNetwork<T>(private val context: Context) : BaseNetwork<T>() {
+abstract class AbstractNetwork<T>(val context: Context) : BaseNetwork<T>() {
 
     override fun retrofitHandler(builder: Retrofit.Builder): Retrofit.Builder {
         builder.addCallAdapterFactory(RxJava2CallAdapterFactory.create())

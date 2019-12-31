@@ -30,6 +30,10 @@ object ARouterHelper {
          */
         const val LOGIN_ACTIVITY_PATH = "/component_login/login/activity"
 
+        /**
+         * 注册页面
+         */
+        const val REGISTER_ACTIVITY_PATH = "/component_login/register/activity"
 
 
         /* ========================================================= */
@@ -50,6 +54,15 @@ object ARouterHelper {
         ARouter.getInstance()
             .build(path)
             .withSerializable(Constants.IntentKey.MAP_PARAMS, mapParams)
+            .navigation()
+    }
+
+    /**
+     * ARouter通用跳转方法
+     */
+    fun routerTo(path: String) {
+        ARouter.getInstance()
+            .build(path)
             .navigation()
     }
 
