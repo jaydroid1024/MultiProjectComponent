@@ -1,4 +1,4 @@
-package com.jaydroid.conponent_base.common.bean;
+package com.jaydroid.conponent_base.network.bean.wan;
 
 
 import java.util.List;

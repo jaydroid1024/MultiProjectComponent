@@ -1,6 +1,6 @@
 package com.jaydroid.conponent_base.base.mvp
 
-import com.jaydroid.conponent_base.base.BaseResponse
+import com.jaydroid.conponent_base.network.bean.wan.BaseResponse
 import com.jaydroid.conponent_base.network.default_net.DefaultNetFactory
 import com.jaydroid.conponent_base.network.default_net.DefaultNetwork
 import io.reactivex.Observable

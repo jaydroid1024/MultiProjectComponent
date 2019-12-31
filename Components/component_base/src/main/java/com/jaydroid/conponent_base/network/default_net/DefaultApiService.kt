@@ -1,8 +1,11 @@
 package com.jaydroid.conponent_base.network.default_net
 
-import com.jaydroid.conponent_base.base.BaseResponse
-import com.jaydroid.conponent_base.common.bean.RegisterResponse
-import com.jaydroid.conponent_base.common.bean.User
+import com.jaydroid.component_main_b.home.bean.Article
+import com.jaydroid.component_main_b.home.bean.ArticleResponse
+import com.jaydroid.conponent_base.network.bean.wan.Banner
+import com.jaydroid.conponent_base.network.bean.wan.BaseResponse
+import com.jaydroid.conponent_base.network.bean.wan.RegisterResponse
+import com.jaydroid.conponent_base.network.bean.wan.User
 import com.jaydroid.conponent_base.network.bean.Repo
 import io.reactivex.Flowable
 import io.reactivex.Observable
@@ -55,6 +58,17 @@ interface DefaultApiService {
         @Field("password") password: String,
         @Field("repassword") repassword: String
     ): Observable<BaseResponse<RegisterResponse>>
+
+
+    @GET("banner/json")
+    fun getBanner(): Observable<BaseResponse<List<Banner>>>
+
+    @GET("article/top/json")
+    fun getTopArticle(): Observable<BaseResponse<List<Article>>>
+
+    @GET("article/list/{page}/json")
+    fun getArticles(@Path("page") page: Int): Observable<BaseResponse<ArticleResponse>>
+
 
 
 }

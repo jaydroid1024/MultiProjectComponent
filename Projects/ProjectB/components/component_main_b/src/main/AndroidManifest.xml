@@ -3,9 +3,20 @@
     package="com.jaydroid.component_main_b">
 
     <application>
-        <activity android:name=".HomeActivity">
+
+        <activity android:name=".main.MainActivity">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+        <activity
+            android:name=".main.SplashActivity"
+            android:theme="@style/component_base_full_screen_style">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

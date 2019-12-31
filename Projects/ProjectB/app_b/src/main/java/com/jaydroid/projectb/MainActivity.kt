@@ -2,26 +2,25 @@ package com.jaydroid.projectb
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.jaydroid.component_base_b.arouter.ARouterPathForB
 import com.jaydroid.conponent_base.arouter.ARouterHelper
 import com.jaydroid.conponent_base.arouter.service.user.UserService
 import com.jaydroid.conponent_base.constant.Constants
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main_test.*
 
 /**
  * ARouter:path必须以'/'开头，并且包含多于2 '/'的内容!
  * Arouter:默认会用你申明的path的第一个/后面的字符用作group，不同组件之间的group不能相同
  */
-@Route(path = ARouterHelper.Path.HOME_ACTIVITY_PATH)
+
 class MainActivity : AppCompatActivity() {
 
     var userService: UserService? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main_test)
         userService =
             ARouter.getInstance().build(ARouterHelper.Path.LOGIN_SERVICE_PATH).navigation() as UserService?
 

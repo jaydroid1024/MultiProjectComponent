@@ -1,7 +1,7 @@
 package com.jaydroid.conponent_base.base.mvp
 
 import android.util.Log
-import com.jaydroid.conponent_base.base.BaseResponse
+import com.jaydroid.conponent_base.network.bean.wan.BaseResponse
 import com.jaydroid.conponent_base.network.error.ApiException
 import com.jaydroid.conponent_base.network.error.ExceptionHandler
 import io.reactivex.observers.DisposableObserver

@@ -11,7 +11,7 @@ import com.jaydroid.component_login.user.contract.RegisterContract
 import com.jaydroid.component_login.user.presenter.RegisterPresenter
 import com.jaydroid.conponent_base.arouter.ARouterHelper
 import com.jaydroid.conponent_base.base.mvp.BaseMVPActivity
-import com.jaydroid.conponent_base.common.bean.RegisterResponse
+import com.jaydroid.conponent_base.network.bean.wan.RegisterResponse
 import com.jaydroid.conponent_base.widget.ClearEditText
 
 @Route(path = ARouterHelper.Path.REGISTER_ACTIVITY_PATH)

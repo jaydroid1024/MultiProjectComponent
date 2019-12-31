@@ -14,7 +14,7 @@ import com.jaydroid.component_login.user.presenter.LoginPresenter
 import com.jaydroid.conponent_base.arouter.ARouterHelper
 import com.jaydroid.conponent_base.arouter.ARouterHelper.Path.REGISTER_ACTIVITY_PATH
 import com.jaydroid.conponent_base.base.mvp.BaseMVPActivity
-import com.jaydroid.conponent_base.common.bean.User
+import com.jaydroid.conponent_base.network.bean.wan.User
 import com.jaydroid.conponent_base.widget.ClearEditText
 import com.jaydroid.conponent_base.widget.LoginView
 

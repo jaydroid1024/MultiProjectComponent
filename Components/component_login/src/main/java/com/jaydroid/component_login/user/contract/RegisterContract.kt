@@ -1,7 +1,7 @@
 package com.jaydroid.component_login.user.contract
 
 import com.jaydroid.conponent_base.base.mvp.IView
-import com.jaydroid.conponent_base.common.bean.RegisterResponse
+import com.jaydroid.conponent_base.network.bean.wan.RegisterResponse
 
 interface RegisterContract {
 

@@ -59,6 +59,12 @@ ext {
             "lottie"                   : "com.airbnb.android:lottie:2.7.0",
             "statusbar-util"           : "com.jaeger.statusbarutil:library:1.5.1",
             "autosize"                 : "me.jessyan:autosize:1.1.1",
+            "recycler-adapter-helper"  : "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.45-androidx",
+            "smart-refresh-layout"     : "com.scwang.smartrefresh:SmartRefreshLayout:1.1.0",
+            "banner"                   : "com.youth.banner:banner:1.4.10",
+
+
+
 
 
             //rx2

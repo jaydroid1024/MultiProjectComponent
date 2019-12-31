@@ -1,7 +1,7 @@
 package com.jaydroid.conponent_base.arouter.service.user
 
 import com.alibaba.android.arouter.facade.template.IProvider
-import com.jaydroid.conponent_base.common.bean.User
+import com.jaydroid.conponent_base.network.bean.wan.User
 
 /**
  * 用户服务管理

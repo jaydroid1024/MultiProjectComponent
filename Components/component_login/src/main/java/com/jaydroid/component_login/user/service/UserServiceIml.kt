@@ -2,11 +2,11 @@ package com.jaydroid.component_login.user.service
 
 import android.content.Context
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.jaydroid.component_lib.utils.util.GsonUtils
-import com.jaydroid.component_lib.utils.util.SPUtils
+import com.jaydroid.component_lib.utils.GsonUtils
+import com.jaydroid.component_lib.utils.SPUtils
 import com.jaydroid.conponent_base.arouter.ARouterHelper
 import com.jaydroid.conponent_base.arouter.service.user.UserService
-import com.jaydroid.conponent_base.common.bean.User
+import com.jaydroid.conponent_base.network.bean.wan.User
 import com.jaydroid.conponent_base.constant.Constants
 
 /**

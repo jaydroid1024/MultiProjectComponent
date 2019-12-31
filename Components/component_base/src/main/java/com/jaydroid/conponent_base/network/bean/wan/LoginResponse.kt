@@ -1,4 +1,4 @@
-package com.jaydroid.conponent_base.common.bean
+package com.jaydroid.conponent_base.network.bean.wan
 
 class LoginResponse(
     val admin: Boolean,

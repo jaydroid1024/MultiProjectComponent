@@ -3,7 +3,7 @@ package com.jaydroid.component_login.user.presenter
 import com.jaydroid.component_login.user.contract.RegisterContract
 import com.jaydroid.conponent_base.base.mvp.BaseObserver
 import com.jaydroid.conponent_base.base.mvp.BasePresenter
-import com.jaydroid.conponent_base.common.bean.RegisterResponse
+import com.jaydroid.conponent_base.network.bean.wan.RegisterResponse
 
 class RegisterPresenter : BasePresenter<RegisterContract.View>(), RegisterContract.Presenter {
 

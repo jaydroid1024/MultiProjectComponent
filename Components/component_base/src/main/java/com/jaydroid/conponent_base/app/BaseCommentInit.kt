@@ -2,7 +2,7 @@ package com.jaydroid.conponent_base.app
 
 import android.app.Application
 import android.util.Log
-import com.jaydroid.component_lib.utils.util.Utils
+import com.jaydroid.component_lib.utils.Utils
 
 import com.jaydroid.conponent_base.network.default_net.DefaultNetFactory
 import com.sankuai.erp.component.appinit.api.SimpleAppInit

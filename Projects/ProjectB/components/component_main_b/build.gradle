@@ -10,7 +10,9 @@ dependencies {
      * ProjectB 公共业务组件
      */
     implementation project(path: ':components:component_base_b')
+    implementation rootProject.ext.dependencies['lottie']
+    implementation rootProject.ext.dependencies['banner']
+    implementation rootProject.ext.dependencies['smart-refresh-layout']
+    implementation rootProject.ext.dependencies['recycler-adapter-helper']
 
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 }
