@@ -101,6 +101,7 @@ class LoginActivity : BaseMVPActivity<LoginContract.View, LoginPresenter>(),
     }
 
     override fun onLoginResult(username: String, user: User?) {
+        ARouterHelper.routerTo(ARouterHelper.Path.HOME_ACTIVITY_PATH)
         finish()
     }
 

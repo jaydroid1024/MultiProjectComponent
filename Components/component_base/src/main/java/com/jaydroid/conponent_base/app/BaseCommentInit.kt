@@ -7,6 +7,7 @@ import com.jaydroid.component_lib.utils.Utils
 import com.jaydroid.conponent_base.network.default_net.DefaultNetFactory
 import com.sankuai.erp.component.appinit.api.SimpleAppInit
 import com.sankuai.erp.component.appinit.common.AppInit
+import com.sankuai.erp.component.appinit.common.Process
 
 /**
  * @author wangxuejie
@@ -31,7 +32,6 @@ class BaseCommentInit : SimpleAppInit() {
         instance = mApplication
         // SimpleAppInit 中包含了 mApplication 和 mIsDebug 属性，可以直接在子类中使用
         DefaultNetFactory.initialize(mApplication)
-
 
     }
 

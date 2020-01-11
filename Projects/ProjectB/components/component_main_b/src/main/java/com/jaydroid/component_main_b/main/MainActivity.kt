@@ -33,7 +33,6 @@ import org.greenrobot.eventbus.ThreadMode
 import kotlin.system.exitProcess
 
 @Route(path = ARouterHelper.Path.HOME_ACTIVITY_PATH)
-@EventBusSubscribe
 class MainActivity : BaseMVPActivity<MainContract.View, MainPresenter>(), MainContract.View,
     View.OnClickListener {
 
@@ -223,7 +222,7 @@ class MainActivity : BaseMVPActivity<MainContract.View, MainPresenter>(), MainCo
         if (isSelected) {
             textView?.setTextColor(resources.getColor(android.R.color.black))
             val width = textView?.measuredWidth
-            Log.e("debug", "width = $width")
+            Log.e("", "width = $width")
         } else {
             textView?.setTextColor(Color.parseColor("#ff959698"))
         }

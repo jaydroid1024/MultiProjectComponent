@@ -19,7 +19,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        //Arouter
+        //Arouter & AppInit
         javaCompileOptions {
             annotationProcessorOptions {
                 if (arguments == null) {
@@ -54,6 +54,12 @@ dependencies {
          */
         //登录组件
         implementation project(path: ':component_login')
+
+
+        /**
+         * ProjectB主业务组件
+         */
+        implementation project(path: ':components:component_main_b')
     }
 
     /**
@@ -61,10 +67,6 @@ dependencies {
      */
     implementation project(path: ':components:component_base_b')
 
-    /**
-     * ProjectB主业务组件
-     */
-    implementation project(path: ':components:component_main_b')
 
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])

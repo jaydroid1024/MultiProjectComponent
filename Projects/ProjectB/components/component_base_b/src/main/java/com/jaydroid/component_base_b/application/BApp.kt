@@ -27,12 +27,13 @@ class BApp : Application() {
 
 
     override fun onCreate() {
+        Log.d(TAG, "BApp-onCreate")
         super.onCreate()
         instance = this
         initRouter()
+        applicationDelegate?.onCreate(this)
 
-        initAppInit()
-
+//        initAppInit()
 
     }
 
@@ -101,6 +102,9 @@ class BApp : Application() {
                 childInitTableList: MutableList<ChildInitTable>?,
                 appInitItemList: MutableList<AppInitItem>?
             ) {
+
+                Log.d(TAG_APP_INIT, "isMainProcess, $isMainProcess")
+                Log.d(TAG_APP_INIT, "processName, $processName")
                 // 获取运行期初始化日val志信息
                 val initLogInfo =
                     AppInitApiUtils.getInitOrderAndTimeLog(childInitTableList, appInitItemList)
@@ -135,29 +139,32 @@ class BApp : Application() {
 
     override fun attachBaseContext(base: Context) {
         super.attachBaseContext(base)
+        Log.d(TAG, "BApp-attachBaseContext")
+
         //appInit的替代方案
-//        applicationDelegate = ApplicationDelegate(base)
-//        applicationDelegate?.attachBaseContext(base)
+        applicationDelegate = ApplicationDelegate(base)
+        applicationDelegate?.attachBaseContext(base)
     }
 
     override fun onTerminate() {
         super.onTerminate()
-        AppInitManager.get().onTerminate()
+        applicationDelegate?.onTerminate(this)
+//        AppInitManager.get().onTerminate()
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-        AppInitManager.get().onConfigurationChanged(newConfig)
+//        AppInitManager.get().onConfigurationChanged(newConfig)
     }
 
     override fun onLowMemory() {
         super.onLowMemory()
-        AppInitManager.get().onLowMemory()
+//        AppInitManager.get().onLowMemory()
     }
 
     override fun onTrimMemory(level: Int) {
         super.onTrimMemory(level)
-        AppInitManager.get().onTrimMemory(level)
+//        AppInitManager.get().onTrimMemory(level)
     }
 
     companion object {

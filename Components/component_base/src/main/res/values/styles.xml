@@ -8,6 +8,13 @@
         <item name="colorAccent">@color/component_base_colorAccent</item>
     </style>
 
+    <style name="component_base_b_app_theme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/component_base_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/component_base_colorPrimaryDark</item>
+        <item name="colorAccent">@color/component_base_colorAccent</item>
+    </style>
+
 
     <style name="component_base_full_screen_style" parent="component_base_app_theme">
         <item name="windowNoTitle">true</item>

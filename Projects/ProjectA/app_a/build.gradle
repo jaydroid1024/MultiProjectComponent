@@ -6,6 +6,8 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+apply plugin: 'appinit-plugin'
+
 kapt {
     arguments {
         arg("AROUTER_MODULE_NAME", project.getName())
@@ -23,20 +25,29 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        //Arouter
+        //Arouter & AppInit
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+                if (arguments == null) {
+                    arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+                } else {
+                    arguments.put("AROUTER_MODULE_NAME", project.getName())
+                    arguments.put("AROUTER_GENERATE_DOC", "enable")
+                }
             }
         }
+
+
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
+
 }
+
+
 
 dependencies {
 

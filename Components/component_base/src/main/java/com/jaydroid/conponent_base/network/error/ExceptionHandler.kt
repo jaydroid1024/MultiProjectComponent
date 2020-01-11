@@ -55,7 +55,7 @@ class ExceptionHandler {
             } else {
                 errorMsg = "网络链接异常，请稍后重试"
             }
-            Toast.makeText(BaseCommentInit.instance, errorMsg, Toast.LENGTH_LONG).show()
+//            Toast.makeText(BaseCommentInit.instance, errorMsg, Toast.LENGTH_LONG).show()
         }
 
         private fun handleServerException(errorCode: Int) {
