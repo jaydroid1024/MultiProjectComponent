@@ -1,4 +1,4 @@
-package com.jaydroid.conponent_base.network.bean
+package com.jaydroid.conponent_base.network.bean.github
 
 /**
  *

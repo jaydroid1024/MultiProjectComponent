@@ -3,7 +3,9 @@ package com.jaydroid.conponent_base.base.mvp
 import com.jaydroid.conponent_base.network.bean.wan.BaseResponse
 import com.jaydroid.conponent_base.network.default_net.DefaultNetFactory
 import com.jaydroid.conponent_base.network.default_net.DefaultNetwork
+import com.jaydroid.conponent_base.network.github_net.GitHubNetwork
 import io.reactivex.Observable
+import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -23,6 +25,10 @@ open class BasePresenter<V : IView> : IPresenter<V> {
         disposable.add(observer)
     }
 
+    fun addSubscribe(baseObserver: Observer<Any>) {
+
+    }
+
     fun unsubscribe() {
         disposable.dispose()
     }
@@ -31,6 +37,9 @@ open class BasePresenter<V : IView> : IPresenter<V> {
         return DefaultNetFactory.getDefaultNet()
     }
 
+    fun getGitHubNet(): GitHubNetwork {
+        return DefaultNetFactory.getGitHubNet()
+    }
 
     override fun attachView(view: V) {
         viewReference = WeakReference(view)

@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         tv_login.setOnClickListener {
             val map = ARouterHelper.getParamsMap(1)
             map[Constants.MapKey.ID] = "数据来自：ProjectA-MainActivity"
-            ARouterHelper.routerTo(map, ARouterHelper.Path.LOGIN_ACTIVITY_PATH)
+            ARouterHelper.routerTo(map, ARouterHelper.Path.LOGIN_GITHUB_ACTIVITY_PATH)
         }
 
         tv_detail.setOnClickListener {

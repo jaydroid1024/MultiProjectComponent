@@ -6,7 +6,7 @@ import com.jaydroid.conponent_base.network.bean.wan.Banner
 import com.jaydroid.conponent_base.network.bean.wan.BaseResponse
 import com.jaydroid.conponent_base.network.bean.wan.RegisterResponse
 import com.jaydroid.conponent_base.network.bean.wan.User
-import com.jaydroid.conponent_base.network.bean.Repo
+import com.jaydroid.conponent_base.network.bean.github.Repo
 import io.reactivex.Flowable
 import io.reactivex.Observable
 import retrofit2.Call

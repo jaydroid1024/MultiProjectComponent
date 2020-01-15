@@ -20,7 +20,6 @@ data class BaseResponse<T>(
     var errorCode: Int? = -1,
     var error: Boolean? = true
 
-
 ) {
 
     fun isSuccess(): Boolean {

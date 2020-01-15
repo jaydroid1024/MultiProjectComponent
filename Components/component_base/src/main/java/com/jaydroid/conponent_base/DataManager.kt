@@ -1,7 +1,7 @@
 package com.jaydroid.conponent_base
 
 import android.util.Log
-import com.jaydroid.conponent_base.network.bean.Repo
+import com.jaydroid.conponent_base.network.bean.github.Repo
 import com.jaydroid.conponent_base.network.default_net.DefaultNetFactory
 import io.reactivex.observers.DisposableObserver
 import org.reactivestreams.Subscriber
@@ -32,7 +32,7 @@ object DataManager {
     }
 
     private fun getListRepos() {
-        DefaultNetFactory.getDefaultNet()
+        DefaultNetFactory.getGitHubNet()
             .getListRepos("Jay-Droid")
             .subscribe(object : Subscriber<List<Repo>> {
                 override fun onComplete() {
@@ -45,13 +45,13 @@ object DataManager {
 
                 override fun onNext(t: List<Repo>) {
                     Log.d(TAG, "onNext")
-                    Log.d(TAG, t?.get(0).toString())
+                    Log.d(TAG, t.get(0).toString())
 
                 }
 
                 override fun onError(t: Throwable) {
                     Log.d(TAG, "onError")
-                    Log.d(TAG, t?.localizedMessage)
+                    Log.d(TAG, t.localizedMessage)
                 }
 
             })
@@ -59,7 +59,7 @@ object DataManager {
 
 
     private fun getListRepos2() {
-        DefaultNetFactory.getDefaultNet()
+        DefaultNetFactory.getGitHubNet()
             .getListRepos2("Jay-Droid")
             .subscribe(object : DisposableObserver<List<Repo>>() {
                 override fun onComplete() {
@@ -69,7 +69,7 @@ object DataManager {
 
                 override fun onNext(t: List<Repo>) {
                     Log.d(TAG, "onNext")
-                    Log.d(TAG, t?.get(0).toString())
+                    Log.d(TAG, t.get(0).toString())
 
                 }
 
@@ -82,7 +82,7 @@ object DataManager {
     }
 
     private fun getListRepos3() {
-        DefaultNetFactory.getDefaultNet()
+        DefaultNetFactory.getGitHubNet()
             .getListRepos3("Jay-Droid")
             .enqueue(object : Callback<List<Repo>> {
                 override fun onFailure(call: Call<List<Repo>>, t: Throwable) {

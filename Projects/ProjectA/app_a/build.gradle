@@ -14,6 +14,7 @@ kapt {
     }
 }
 
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -37,7 +38,6 @@ android {
             }
         }
 
-
     }
 
     compileOptions {
@@ -57,8 +57,11 @@ dependencies {
          * 在宿主 App 中使用 implementation 依赖业务组件, 业务组件的代码就会完全暴露给宿主 App, 不利于代码的隔离
          * 使用 runtimeOnly 依赖业务组件, 可实现业务组件的代码在编译时对宿主 App 不可见, 仅在运行时对宿主 App 可见
          */
-        //登录组件
+        //公共登录组件
         implementation project(path: ':component_login')
+        //ProjectA 登陆
+        implementation project(path: ':components:component_login_a')
+
     }
 
     /**

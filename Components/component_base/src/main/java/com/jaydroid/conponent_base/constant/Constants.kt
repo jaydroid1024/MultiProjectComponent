@@ -18,6 +18,11 @@ object Constants {
          * key:account_login
          */
         const val ACCOUNT_LOGIN = "account_login"
+
+        /**
+         * key:auth_github_token
+         */
+        const val AUTH_GITHUB_TOKEN = "auth_github_token"
     }
     /* ========================================================= */
     /* ======================= HashMap Keys ==================== */

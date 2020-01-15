@@ -8,7 +8,7 @@ import com.jaydroid.conponent_base.network.bean.wan.Banner
 import com.jaydroid.conponent_base.arouter.ARouterHelper
 import com.jaydroid.conponent_base.arouter.service.user.UserService
 import com.jaydroid.conponent_base.network.auth.AuthAbstractNetwork
-import com.jaydroid.conponent_base.network.bean.Repo
+import com.jaydroid.conponent_base.network.bean.github.Repo
 import com.jaydroid.conponent_base.network.bean.wan.BaseResponse
 import com.jaydroid.conponent_base.network.bean.wan.RegisterResponse
 import com.jaydroid.conponent_base.network.bean.wan.User
@@ -33,23 +33,6 @@ class DefaultNetwork(context: Context) : AuthAbstractNetwork<DefaultApiService>(
 
     override val restClass: Class<DefaultApiService>
         get() = DefaultApiService::class.java
-
-
-    fun getListRepos(userId: String): Flowable<List<Repo>> {
-        return getNetworkService()
-            .listRepos(userId)
-            .compose(RxUtil.applyFlowableTransformer())
-    }
-
-    fun getListRepos2(userId: String): Observable<List<Repo>> {
-        return getNetworkService()
-            .listRepos2(userId)
-            .compose(RxUtil.applyObservableTransformer())
-    }
-
-    fun getListRepos3(userId: String): Call<List<Repo>> {
-        return getNetworkService().listRepos3(userId)
-    }
 
 
     fun login(name: String, pwd: String): Observable<BaseResponse<User>> {

@@ -2,6 +2,7 @@ package com.jaydroid.conponent_base.network.default_net
 
 import android.annotation.SuppressLint
 import android.app.Application
+import com.jaydroid.conponent_base.network.github_net.GitHubNetwork
 
 /**
  *
@@ -9,10 +10,12 @@ import android.app.Application
  * @date 2019-12-25 17:51
  * @version 1.0
  */
+@SuppressLint("StaticFieldLeak")
 object DefaultNetFactory {
 
-    @SuppressLint("StaticFieldLeak")
     var defaultNetwork: DefaultNetwork? = null
+
+    var gitHubNetwork: GitHubNetwork? = null
 
     /**
      * 获取应用类实例
@@ -23,7 +26,6 @@ object DefaultNetFactory {
 
     fun initialize(app: Application) {
         application = app
-        getDefaultNet()
     }
 
     @Synchronized
@@ -32,6 +34,17 @@ object DefaultNetFactory {
             defaultNetwork = DefaultNetwork(application.applicationContext!!)
         }
         return defaultNetwork!!
+    }
+
+    @Synchronized
+    fun getGitHubNet(): GitHubNetwork {
+        val configMap = NetConfigHelper.getNetConfigMap()
+        configMap["base_url"] = "https://api.github.com"
+        if (gitHubNetwork == null) {
+            gitHubNetwork = GitHubNetwork(application.applicationContext!!, configMap)
+        }
+        gitHubNetwork?.configMap = configMap
+        return gitHubNetwork!!
     }
 
 

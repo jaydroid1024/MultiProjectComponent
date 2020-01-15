@@ -4,6 +4,7 @@ rootProject.name='ProjectA'
  * APP主工程
  */
 include ':app_a',
+        ':components:component_login_a',
         ':components:component_base_a'
 
 

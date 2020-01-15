@@ -44,6 +44,18 @@ object ARouterHelper {
          * Home页面
          */
         const val HOME_ACTIVITY_PATH = "/app_a/home/activity"
+
+
+        /* ========================================================= */
+        /* =================== component_login_a组件 ================ */
+        /* ========================================================= */
+        /**
+         * 登录页面
+         */
+        const val LOGIN_GITHUB_ACTIVITY_PATH = "/component_login_a/login/activity"
+
+
+
     }
 
 

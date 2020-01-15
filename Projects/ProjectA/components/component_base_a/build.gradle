@@ -18,6 +18,10 @@ android {
 
         testInstrumentationRunner rootProject.ext.dependencies["androidJUnitRunner"]
         consumerProguardFiles 'consumer-rules.pro'
+
+        buildConfigField "String", "CLIENT_ID", "\"8f7213694e115df205fb\""
+        buildConfigField "String", "CLIENT_SECRET", "\"82c57672382db5c7b528d79e283c398ad02e3c3f\""
+
     }
 
     buildTypes {
