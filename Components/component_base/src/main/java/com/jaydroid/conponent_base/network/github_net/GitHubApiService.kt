@@ -1,13 +1,9 @@
 package com.jaydroid.conponent_base.network.github_net
 
-import com.jaydroid.conponent_base.network.bean.github.AuthRequestModel
-import com.jaydroid.conponent_base.network.bean.github.BasicToken
-import com.jaydroid.conponent_base.network.bean.github.OauthToken
-import com.jaydroid.conponent_base.network.bean.github.Repo
+import com.jaydroid.conponent_base.network.bean.github.*
 import io.reactivex.Flowable
 import io.reactivex.Observable
 import retrofit2.Call
-import retrofit2.Response
 import retrofit2.http.*
 
 /**
@@ -50,5 +46,6 @@ interface GitHubApiService {
         @Query("state") state: String
     ): Observable<OauthToken>
 
-
+    @GET("user")
+    abstract fun getPersonInfo(): Observable<GitUser>
 }

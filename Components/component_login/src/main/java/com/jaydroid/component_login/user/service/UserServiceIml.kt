@@ -24,15 +24,6 @@ class UserServiceIml : UserService {
         this.context = context
     }
 
-    /**
-     * 获取登录信息
-     */
-    fun getLoginData(): User? {
-        return GsonUtils.fromJson(
-            SPUtils.get(context, Constants.SP.ACCOUNT_LOGIN, "") as String,
-            User::class.java
-        )
-    }
 
     override fun getUserInfo(): User? {
         return if (SPUtils.contains(context, Constants.SP.ACCOUNT_LOGIN)) {

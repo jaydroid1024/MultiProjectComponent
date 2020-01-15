@@ -20,6 +20,11 @@ object Constants {
         const val ACCOUNT_LOGIN = "account_login"
 
         /**
+         * key:git_account_login
+         */
+        const val GIT_ACCOUNT_LOGIN = "git_account_login"
+
+        /**
          * key:auth_github_token
          */
         const val AUTH_GITHUB_TOKEN = "auth_github_token"

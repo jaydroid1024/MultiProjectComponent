@@ -21,6 +21,11 @@ object ARouterHelper {
          */
         const val LOGIN_SERVICE_PATH = "/component_base/login/service"
 
+        /**
+         * 登录服务
+         */
+        const val GIT_LOGIN_SERVICE_PATH = "/component_base/git_login/service"
+
 
         /* ========================================================= */
         /* ==================== component_login组件 ================= */
@@ -50,7 +55,7 @@ object ARouterHelper {
         /* =================== component_login_a组件 ================ */
         /* ========================================================= */
         /**
-         * 登录页面
+         * Git登录页面
          */
         const val LOGIN_GITHUB_ACTIVITY_PATH = "/component_login_a/login/activity"
 

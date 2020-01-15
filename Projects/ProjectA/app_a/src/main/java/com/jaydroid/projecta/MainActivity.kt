@@ -6,7 +6,7 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.jaydroid.component_base_a.arouter.ARouterPathForA
 import com.jaydroid.conponent_base.arouter.ARouterHelper
-import com.jaydroid.conponent_base.arouter.service.user.UserService
+import com.jaydroid.conponent_base.arouter.service.user.GitHubUserService
 import com.jaydroid.conponent_base.constant.Constants
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -18,13 +18,13 @@ import kotlinx.android.synthetic.main.activity_main.*
 @Route(path = ARouterHelper.Path.HOME_ACTIVITY_PATH)
 class MainActivity : AppCompatActivity() {
 
-    var loginRouterService: UserService? = null
+    var loginRouterService: GitHubUserService? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         loginRouterService =
-            ARouter.getInstance().build(ARouterHelper.Path.LOGIN_SERVICE_PATH).navigation() as UserService?
+            ARouter.getInstance().build(ARouterHelper.Path.GIT_LOGIN_SERVICE_PATH).navigation() as GitHubUserService
         tv_login.append("\n通过服务获取的登录信息为：${loginRouterService?.getUserInfo()}")
 
 

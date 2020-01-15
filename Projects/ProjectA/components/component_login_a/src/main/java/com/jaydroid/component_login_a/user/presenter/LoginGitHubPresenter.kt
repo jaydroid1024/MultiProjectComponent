@@ -6,8 +6,8 @@ import com.jaydroid.component_login_a.user.contract.LoginGitHubContract
 import com.jaydroid.conponent_base.base.mvp.BasePresenter
 import com.jaydroid.conponent_base.network.bean.github.AuthRequestModel
 import com.jaydroid.conponent_base.network.bean.github.BasicToken
+import com.jaydroid.conponent_base.network.bean.github.GitUser
 import io.reactivex.observers.DisposableObserver
-import okhttp3.Credentials
 
 class LoginGitHubPresenter : BasePresenter<LoginGitHubContract.View>(),
     LoginGitHubContract.Presenter {
@@ -25,18 +25,15 @@ class LoginGitHubPresenter : BasePresenter<LoginGitHubContract.View>(),
     override fun login(userName: String, password: String) {
         getView()?.showLoading()
         val authRequestModel = generateAuthRequestModel()
-        val token = Credentials.basic(userName, password)
-
-        //todo DisposableObserver
-        val a = getGitHubNet().login(authRequestModel)
+        addSubscribe(
+            getGitHubNet().login(authRequestModel)
             .subscribeWith(object : DisposableObserver<BasicToken>() {
                 override fun onComplete() {
-                    getView()?.dismissLoading()
+
                 }
 
                 override fun onNext(response: BasicToken) {
                     Log.d("login", response.toString())
-
                     getView()?.onLoginResult(response)
 
                 }
@@ -45,5 +42,28 @@ class LoginGitHubPresenter : BasePresenter<LoginGitHubContract.View>(),
                 }
 
             })
+        )
+    }
+
+
+    override fun getUserInfo() {
+        addSubscribe(
+            getGitHubNet().getUserInfo()
+                .subscribeWith(object : DisposableObserver<GitUser>() {
+                    override fun onComplete() {
+                        getView()?.dismissLoading()
+                    }
+
+                    override fun onNext(response: GitUser) {
+                        Log.d("login", response.toString())
+                        getView()?.onLoginComplete(response)
+
+                    }
+
+                    override fun onError(e: Throwable) {
+                    }
+
+                })
+        )
     }
 }

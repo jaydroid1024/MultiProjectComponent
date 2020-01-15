@@ -13,6 +13,7 @@ import com.jaydroid.conponent_base.arouter.ARouterHelper
 import com.jaydroid.conponent_base.base.mvp.BaseMVPActivity
 import com.jaydroid.conponent_base.constant.Constants
 import com.jaydroid.conponent_base.network.bean.github.BasicToken
+import com.jaydroid.conponent_base.network.bean.github.GitUser
 import com.jaydroid.conponent_base.widget.LoginView
 import okhttp3.Credentials
 
@@ -99,6 +100,10 @@ class LoginGitHubActivity : BaseMVPActivity<LoginGitHubContract.View, LoginGitHu
 
     override fun onLoginResult(response: BasicToken) {
         SPUtils.put(this, Constants.SP.AUTH_GITHUB_TOKEN, response.token)
+        presenter.getUserInfo()
+    }
+
+    override fun onLoginComplete(response: GitUser) {
         ARouterHelper.routerTo(ARouterHelper.Path.HOME_ACTIVITY_PATH)
         finish()
     }
