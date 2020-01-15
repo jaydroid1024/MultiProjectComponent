@@ -1,0 +1,11 @@
+apply from: "../../common_component_build.gradle"
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    /**
+     * ProjectA的公共业务组件
+     */
+    implementation project(path: ':components:component_base_a')
+
+}

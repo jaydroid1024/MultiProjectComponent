@@ -61,6 +61,8 @@ dependencies {
         implementation project(path: ':component_login')
         //ProjectA 登陆
         implementation project(path: ':components:component_login_a')
+        //ProjectA 主业务组件
+        implementation project(path: ':components:component_main_a')
 
     }
 
