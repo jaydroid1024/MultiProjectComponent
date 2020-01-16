@@ -3,6 +3,7 @@ package com.jaydroid.component_main_b.main
 import android.animation.Animator
 import com.jaydroid.component_main_b.R
 import com.jaydroid.conponent_base.arouter.ARouterHelper
+import com.jaydroid.conponent_base.arouter.service.user.UserService
 import com.jaydroid.conponent_base.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_splash.*
 
@@ -31,7 +32,13 @@ class SplashActivity : BaseActivity() {
     }
 
     private fun gotoMainActivity() {
-        ARouterHelper.routerTo(ARouterHelper.Path.LOGIN_ACTIVITY_PATH)
+        val userService = ARouterHelper.getService<UserService>(UserService::class.java)
+        val user = userService?.getUserInfo()
+        if (user != null && user.id > 0) {
+            ARouterHelper.routerTo(ARouterHelper.Path.HOME_ACTIVITY_PATH)
+        } else {
+            ARouterHelper.routerTo(ARouterHelper.Path.LOGIN_ACTIVITY_PATH)
+        }
         finish()
     }
 }

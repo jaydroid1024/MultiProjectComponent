@@ -16,10 +16,12 @@ class DetailsActivity : AppCompatActivity() {
      * Intent传递的参数
      */
     private var mMapParams: HashMap<*, *>? = null
+    private var mMapParams2: Map<*, *>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
+        mMapParams2 = ARouterHelper.getParamsMap(intent)
         initIntent()
         val idInfo = ARouterHelper.getParamsMapString(mMapParams, Constants.MapKey.ID)
         tv_from.text = idInfo

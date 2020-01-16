@@ -7,10 +7,14 @@ dependencies {
      * ProjectA的公共业务组件
      */
     implementation project(path: ':components:component_base_a')
-    /**
-     * ProjectA登陆业务组件
-     */
-    implementation project(path: ':components:component_login_a')
+    //独立调试
+    if (isBuildModule.toBoolean()) {
+        /**
+         * ProjectA登陆业务组件
+         */
+        implementation project(path: ':components:component_login_a')
+    }
+
 
     implementation rootProject.ext.dependencies["circleimageview"]
 }

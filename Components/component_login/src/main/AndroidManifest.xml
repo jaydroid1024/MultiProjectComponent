@@ -3,14 +3,14 @@
     package="com.jaydroid.component_login">
 
     <application>
-        <activity android:name=".user.activity.LoginActivity">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-        </activity>
+        <activity android:name=".user.activity.LoginActivity" />
         <activity android:name=".user.activity.RegisterActivity" />
+
+        <!--appLife-->
+        <meta-data
+            android:name="com.jaydroid.component_login.user.app.UserApp"
+            android:value="IModuleConfig" />
+
     </application>
 
 </manifest>

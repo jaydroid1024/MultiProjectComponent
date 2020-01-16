@@ -2,9 +2,11 @@
     package="com.jaydroid.conponent_base">
 
     <application>
-        <!--        -->
+
+        <!--appLife ,name需要时全类名-->
         <meta-data
             android:name="com.jaydroid.conponent_base.app.BaseApp"
             android:value="IModuleConfig" />
+
     </application>
 </manifest>

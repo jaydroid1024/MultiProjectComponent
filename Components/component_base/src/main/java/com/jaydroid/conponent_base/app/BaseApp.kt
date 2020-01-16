@@ -3,6 +3,7 @@ package com.jaydroid.conponent_base.app
 import android.app.Application
 import android.content.Context
 import android.util.Log
+import com.jaydroid.component_lib.utils.Utils
 
 import com.jaydroid.conponent_base.app.delegate.IAppLife
 import com.jaydroid.conponent_base.network.default_net.DefaultNetFactory
@@ -23,6 +24,7 @@ class BaseApp : IAppLife {
 
     override fun onCreate(application: Application) {
         Log.d(TAG, "onCreate")
+        Utils.init(application)
         DefaultNetFactory.initialize(application)
 
     }
@@ -34,6 +36,6 @@ class BaseApp : IAppLife {
 
     companion object {
 
-        private val TAG = "UserApp"
+        private const val TAG = "UserApp"
     }
 }
