@@ -11,6 +11,7 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.jaydroid.component_login.R
 import com.jaydroid.component_login.user.contract.LoginContract
 import com.jaydroid.component_login.user.presenter.LoginPresenter
+import com.jaydroid.conponent_base.app.AppConfig
 import com.jaydroid.conponent_base.arouter.ARouterHelper
 import com.jaydroid.conponent_base.arouter.ARouterHelper.Path.REGISTER_ACTIVITY_PATH
 import com.jaydroid.conponent_base.base.mvp.BaseMVPActivity
@@ -101,6 +102,8 @@ class LoginActivity : BaseMVPActivity<LoginContract.View, LoginPresenter>(),
     }
 
     override fun onLoginResult(username: String, user: User?) {
+        val pm = this.packageManager
+        val appName = applicationInfo.loadLabel(pm).toString()
         ARouterHelper.routerTo(ARouterHelper.Path.HOME_ACTIVITY_PATH)
         finish()
     }

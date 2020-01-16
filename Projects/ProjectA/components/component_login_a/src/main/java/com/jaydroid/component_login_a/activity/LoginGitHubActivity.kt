@@ -62,7 +62,7 @@ class LoginGitHubActivity : BaseMVPActivity<LoginGitHubContract.View, LoginGitHu
                 login()
             }
             R.id.oauth_login_bn -> {
-
+                ARouterHelper.routerTo(ARouterHelper.Path.LOGIN_ACTIVITY_PATH)
             }
         }
     }
