@@ -20,6 +20,10 @@ android {
         consumerProguardFiles 'consumer-rules.pro'
 
         //Arouter
+        /**
+         * ARouter:path必须以'/'开头，并且包含多于2 '/'的内容!
+         * ARouter:默认会用你R申明的path的第一个/后面的字符用作group，不同组件之间的group不能相同
+         */
         javaCompileOptions {
             annotationProcessorOptions {
                 if (arguments == null) {
@@ -66,4 +70,8 @@ dependencies {
     api rootProject.ext.dependencies['eventbus']
     api rootProject.ext.dependencies['persistentcookiejar']
     api rootProject.ext.dependencies['statusbar-util']
+    api rootProject.ext.dependencies['butterknife']
+    kapt rootProject.ext.dependencies['butterknife-compiler']
+
+
 }

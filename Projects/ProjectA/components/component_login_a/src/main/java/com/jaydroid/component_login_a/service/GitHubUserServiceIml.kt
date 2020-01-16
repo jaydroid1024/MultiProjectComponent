@@ -1,4 +1,4 @@
-package com.jaydroid.component_login_a.user.service
+package com.jaydroid.component_login_a.service
 
 import android.content.Context
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -6,10 +6,8 @@ import com.jaydroid.component_lib.utils.GsonUtils
 import com.jaydroid.component_lib.utils.SPUtils
 import com.jaydroid.conponent_base.arouter.ARouterHelper
 import com.jaydroid.conponent_base.arouter.service.user.GitHubUserService
-import com.jaydroid.conponent_base.arouter.service.user.UserService
 import com.jaydroid.conponent_base.constant.Constants
 import com.jaydroid.conponent_base.network.bean.github.GitUser
-import com.jaydroid.conponent_base.network.bean.wan.User
 
 /**
  * 登录模块对外暴露的服务
@@ -27,9 +25,9 @@ class GitHubUserServiceIml : GitHubUserService {
     }
 
     override fun getUserInfo(): GitUser? {
-        return if (SPUtils.contains(context, Constants.SP.AUTH_GITHUB_TOKEN)) {
+        return if (SPUtils.contains(context, Constants.SP.GIT_ACCOUNT_LOGIN)) {
             GsonUtils.fromJson(
-                SPUtils.get(context, Constants.SP.AUTH_GITHUB_TOKEN, "") as String,
+                SPUtils.get(context, Constants.SP.GIT_ACCOUNT_LOGIN, "") as String,
                 GitUser::class.java
             )
         } else {
@@ -40,7 +38,7 @@ class GitHubUserServiceIml : GitHubUserService {
 
 
     override fun setUserInfo(user: GitUser?) {
-        SPUtils.put(context, Constants.SP.AUTH_GITHUB_TOKEN, GsonUtils.toJson(user))
+        SPUtils.put(context, Constants.SP.GIT_ACCOUNT_LOGIN, GsonUtils.toJson(user))
     }
 
 

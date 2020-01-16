@@ -1,4 +1,4 @@
-package com.jaydroid.component_login_a.user.contract
+package com.jaydroid.component_login_a.contract
 
 import com.jaydroid.conponent_base.base.mvp.IView
 import com.jaydroid.conponent_base.network.bean.github.BasicToken

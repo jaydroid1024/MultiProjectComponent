@@ -24,9 +24,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         loginRouterService =
-            ARouter.getInstance().build(ARouterHelper.Path.GIT_LOGIN_SERVICE_PATH).navigation() as GitHubUserService
+            ARouter.getInstance().build(ARouterHelper.Path.GIT_LOGIN_SERVICE_PATH).navigation() as? GitHubUserService
         tv_login.append("\n通过服务获取的登录信息为：${loginRouterService?.getUserInfo()}")
-
 
         tv_login.setOnClickListener {
             val map = ARouterHelper.getParamsMap(1)

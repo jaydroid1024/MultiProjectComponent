@@ -1,8 +1,8 @@
-package com.jaydroid.component_login_a.user.presenter
+package com.jaydroid.component_login_a.presenter
 
 import android.util.Log
 import com.jaydroid.component_base_a.BuildConfig
-import com.jaydroid.component_login_a.user.contract.LoginGitHubContract
+import com.jaydroid.component_login_a.contract.LoginGitHubContract
 import com.jaydroid.conponent_base.base.mvp.BasePresenter
 import com.jaydroid.conponent_base.network.bean.github.AuthRequestModel
 import com.jaydroid.conponent_base.network.bean.github.BasicToken
@@ -26,7 +26,8 @@ class LoginGitHubPresenter : BasePresenter<LoginGitHubContract.View>(),
         getView()?.showLoading()
         val authRequestModel = generateAuthRequestModel()
         addSubscribe(
-            getGitHubNet().login(authRequestModel)
+            getGitHubNet()
+                .login(authRequestModel)
             .subscribeWith(object : DisposableObserver<BasicToken>() {
                 override fun onComplete() {
 
@@ -39,6 +40,8 @@ class LoginGitHubPresenter : BasePresenter<LoginGitHubContract.View>(),
                 }
 
                 override fun onError(e: Throwable) {
+                    getView()?.dismissLoading()
+                    Log.e("okhttp", "" + e.localizedMessage)
                 }
 
             })
@@ -61,6 +64,8 @@ class LoginGitHubPresenter : BasePresenter<LoginGitHubContract.View>(),
                     }
 
                     override fun onError(e: Throwable) {
+                        Log.e("okhttp", "" + e.localizedMessage)
+
                     }
 
                 })

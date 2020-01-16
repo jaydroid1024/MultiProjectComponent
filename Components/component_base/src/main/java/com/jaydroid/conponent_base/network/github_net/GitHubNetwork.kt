@@ -25,8 +25,7 @@ class GitHubNetwork(
 
     init {
         userService =
-            ARouter.getInstance().build(ARouterHelper.Path.GIT_LOGIN_SERVICE_PATH).navigation() as GitHubUserService
-
+            ARouter.getInstance().build(ARouterHelper.Path.GIT_LOGIN_SERVICE_PATH).navigation() as? GitHubUserService
     }
     public override val baseUrl: String
         get() = configMap["base_url"]!!

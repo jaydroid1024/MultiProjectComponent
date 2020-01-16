@@ -14,11 +14,12 @@ ext {
             retrofitSdkVersion      : "2.7.0",
             dagger2SdkVersion       : "2.19",
             glideSdkVersion         : "4.8.0",
-            butterknifeSdkVersion   : "8.8.1",
+            butterknifeSdkVersion   : "10.2.0",
             rxlifecycleSdkVersion   : "1.0",
             rxlifecycle2SdkVersion  : "2.2.2",
             espressoSdkVersion      : "3.0.1",
-            canarySdkVersion        : "1.5.4"
+            canarySdkVersion        : "1.5.4",
+            circleImageviewVersion  : "2.1.0"
     ]
 
     dependencies = [
@@ -62,7 +63,7 @@ ext {
             "recycler-adapter-helper"  : "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.45-androidx",
             "smart-refresh-layout"     : "com.scwang.smartrefresh:SmartRefreshLayout:1.1.0",
             "banner"                   : "com.youth.banner:banner:1.4.10",
-
+            "circleimageview"          : "de.hdodenhof:circleimageview:${version["circleImageviewVersion"]}",
 
 
 

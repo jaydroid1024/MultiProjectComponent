@@ -1,4 +1,4 @@
-package com.jaydroid.component_login_a.user.app;
+package com.jaydroid.component_login_a.app;
 
 import android.app.Application;
 import android.content.Context;

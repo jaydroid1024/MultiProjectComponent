@@ -13,6 +13,7 @@ import java.util.*
 object ARouterHelper {
 
     object Path {
+
         /* ========================================================= */
         /* ==================== component_base组件  ================= */
         /* ========================================================= */
@@ -24,7 +25,7 @@ object ARouterHelper {
         /**
          * 登录服务
          */
-        const val GIT_LOGIN_SERVICE_PATH = "/component_base/git_login/service"
+        const val GIT_LOGIN_SERVICE_PATH = "/component_login_a/git_login/service"
 
 
         /* ========================================================= */
@@ -59,6 +60,14 @@ object ARouterHelper {
          */
         const val LOGIN_GITHUB_ACTIVITY_PATH = "/component_login_a/login/activity"
 
+
+        /* ========================================================= */
+        /* =================== component_main_a组件 ================ */
+        /* ========================================================= */
+        /**
+         * Git主页面
+         */
+        const val GIT_MAIN_ACTIVITY_PATH = "/component_main_a/main/activity"
 
 
     }

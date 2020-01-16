@@ -1,0 +1,19 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="component_base_a_app_theme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/component_base_a_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/component_base_a_colorPrimaryDark</item>
+        <item name="colorAccent">@color/component_base_a_colorAccent</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="component_base_a_splash_theme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:statusBarColor">#00000000</item>
+        <!--<item name="android:windowLightStatusBar" tools:targetApi="m">true</item>-->
+        <item name="android:windowBackground">@drawable/splash_screen_drawable</item>
+        <!--<item name="icon_color">@color/white</item> &lt;!&ndash; to display the icons properly since this theme is the default &ndash;&gt;-->
+    </style>
+
+</resources>

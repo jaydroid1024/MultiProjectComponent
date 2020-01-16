@@ -1,4 +1,4 @@
-package com.jaydroid.component_login_a.user.activity
+package com.jaydroid.component_login_a.activity
 
 import android.view.View
 import android.widget.Button
@@ -7,8 +7,8 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.jaydroid.component_lib.utils.SPUtils
 import com.jaydroid.component_login_a.R
-import com.jaydroid.component_login_a.user.contract.LoginGitHubContract
-import com.jaydroid.component_login_a.user.presenter.LoginGitHubPresenter
+import com.jaydroid.component_login_a.contract.LoginGitHubContract
+import com.jaydroid.component_login_a.presenter.LoginGitHubPresenter
 import com.jaydroid.conponent_base.arouter.ARouterHelper
 import com.jaydroid.conponent_base.base.mvp.BaseMVPActivity
 import com.jaydroid.conponent_base.constant.Constants
@@ -54,7 +54,6 @@ class LoginGitHubActivity : BaseMVPActivity<LoginGitHubContract.View, LoginGitHu
     override fun initData() {
         super.initData()
         userNameEt.setText("Jay-Droid")
-        passwordEt.setText("jie920824")
     }
 
     override fun onClick(v: View?) {
@@ -104,7 +103,7 @@ class LoginGitHubActivity : BaseMVPActivity<LoginGitHubContract.View, LoginGitHu
     }
 
     override fun onLoginComplete(response: GitUser) {
-        ARouterHelper.routerTo(ARouterHelper.Path.HOME_ACTIVITY_PATH)
+        ARouterHelper.routerTo(ARouterHelper.Path.GIT_MAIN_ACTIVITY_PATH)
         finish()
     }
 
