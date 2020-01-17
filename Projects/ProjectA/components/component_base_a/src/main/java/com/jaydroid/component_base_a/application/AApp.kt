@@ -6,6 +6,7 @@ import android.content.res.Configuration
 import android.util.Log
 
 import com.alibaba.android.arouter.launcher.ARouter
+import com.jaydroid.component_base_a.github_net.GitNetFactory
 import com.jaydroid.conponent_base.BuildConfig
 import com.jaydroid.conponent_base.app.delegate.ApplicationDelegate
 import com.sankuai.erp.component.appinit.api.AppInitApiUtils
@@ -32,7 +33,7 @@ class AApp :  Application() {
         instance = this
         initRouter()
         applicationDelegate?.onCreate(this)
-
+        GitNetFactory.initialize(this)
 //        initAppInit()
 
     }

@@ -1,4 +1,4 @@
-package com.jaydroid.conponent_base.network.github_net
+package com.jaydroid.component_base_a.github_net
 
 import com.jaydroid.conponent_base.network.bean.github.*
 import io.reactivex.Flowable

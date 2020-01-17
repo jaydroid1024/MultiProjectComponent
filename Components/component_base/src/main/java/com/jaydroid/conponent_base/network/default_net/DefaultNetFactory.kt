@@ -2,7 +2,6 @@ package com.jaydroid.conponent_base.network.default_net
 
 import android.annotation.SuppressLint
 import android.app.Application
-import com.jaydroid.conponent_base.network.github_net.GitHubNetwork
 
 /**
  *
@@ -14,8 +13,6 @@ import com.jaydroid.conponent_base.network.github_net.GitHubNetwork
 object DefaultNetFactory {
 
     var defaultNetwork: DefaultNetwork? = null
-
-    var gitHubNetwork: GitHubNetwork? = null
 
     /**
      * 获取应用类实例
@@ -35,17 +32,5 @@ object DefaultNetFactory {
         }
         return defaultNetwork!!
     }
-
-    @Synchronized
-    fun getGitHubNet(): GitHubNetwork {
-        val configMap = NetConfigHelper.getNetConfigMap()
-        configMap["base_url"] = "https://api.github.com"
-        if (gitHubNetwork == null) {
-            gitHubNetwork = GitHubNetwork(application.applicationContext!!, configMap)
-        }
-        gitHubNetwork?.configMap = configMap
-        return gitHubNetwork!!
-    }
-
 
 }

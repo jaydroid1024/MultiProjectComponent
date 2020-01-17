@@ -1,4 +1,4 @@
-package com.jaydroid.conponent_base.network.github_net
+package com.jaydroid.component_base_a.github_net
 
 import android.content.Context
 import com.alibaba.android.arouter.launcher.ARouter

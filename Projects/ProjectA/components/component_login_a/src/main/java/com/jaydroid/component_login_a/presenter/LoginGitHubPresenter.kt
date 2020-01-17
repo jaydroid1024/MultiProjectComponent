@@ -2,6 +2,7 @@ package com.jaydroid.component_login_a.presenter
 
 import android.util.Log
 import com.jaydroid.component_base_a.BuildConfig
+import com.jaydroid.component_base_a.github_net.GitNetFactory
 import com.jaydroid.component_login_a.contract.LoginGitHubContract
 import com.jaydroid.conponent_base.base.mvp.BasePresenter
 import com.jaydroid.conponent_base.network.bean.github.AuthRequestModel
@@ -26,7 +27,7 @@ class LoginGitHubPresenter : BasePresenter<LoginGitHubContract.View>(),
         getView()?.showLoading()
         val authRequestModel = generateAuthRequestModel()
         addSubscribe(
-            getGitHubNet()
+            GitNetFactory.getGitHubNet()
                 .login(authRequestModel)
             .subscribeWith(object : DisposableObserver<BasicToken>() {
                 override fun onComplete() {
@@ -51,7 +52,7 @@ class LoginGitHubPresenter : BasePresenter<LoginGitHubContract.View>(),
 
     override fun getUserInfo() {
         addSubscribe(
-            getGitHubNet().getUserInfo()
+            GitNetFactory.getGitHubNet().getUserInfo()
                 .subscribeWith(object : DisposableObserver<GitUser>() {
                     override fun onComplete() {
                         getView()?.dismissLoading()
