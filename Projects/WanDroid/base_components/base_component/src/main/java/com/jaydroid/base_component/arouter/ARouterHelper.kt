@@ -1,6 +1,8 @@
 package com.jaydroid.base_component.arouter
 
+import android.app.Activity
 import android.content.Intent
+import com.alibaba.android.arouter.facade.callback.NavigationCallback
 import com.alibaba.android.arouter.launcher.ARouter
 import com.google.gson.Gson
 import com.jaydroid.base_component.constant.Constants
@@ -93,16 +95,6 @@ object ARouterHelper {
     /**
      * ARouter通用跳转方法
      */
-    fun routerTo(mapParams: HashMap<String, Any>, path: String) {
-        ARouter.getInstance()
-            .build(path)
-            .withSerializable(Constants.IntentKey.MAP_PARAMS, mapParams)
-            .navigation()
-    }
-
-    /**
-     * ARouter通用跳转方法
-     */
     fun routerToWithJson(mapParams: HashMap<String, Any>, path: String) {
         ARouter.getInstance()
             .build(path)
@@ -137,8 +129,24 @@ object ARouterHelper {
      * ARouter通用跳转方法
      */
     fun routerTo(path: String) {
+        ARouter.getInstance().build(path).navigation()
+    }
+
+    /**
+     * ARouter通用跳转方法
+     */
+    fun routerTo(path: String, activity: Activity, callBack: NavigationCallback) {
+        ARouter.getInstance().build(path).navigation(activity, callBack)
+    }
+
+
+    /**
+     * ARouter通用跳转方法
+     */
+    fun routerTo(mapParams: HashMap<String, Any>, path: String) {
         ARouter.getInstance()
             .build(path)
+            .withSerializable(Constants.IntentKey.MAP_PARAMS, mapParams)
             .navigation()
     }
 

@@ -11,7 +11,7 @@ import android.content.res.Configuration
  */
 interface IAppLife {
 
-    fun attachBaseContext(base: Context)
+    fun attachBaseContext(context: Context)
 
     fun onCreate(application: Application)
 
@@ -23,6 +23,9 @@ interface IAppLife {
 
     fun onTrimMemory(level: Int)
 
+    /**
+     * 设置该appLife的优先级，必须设置，否则不会回调
+     */
     fun onPriority(): String
 
     companion object {

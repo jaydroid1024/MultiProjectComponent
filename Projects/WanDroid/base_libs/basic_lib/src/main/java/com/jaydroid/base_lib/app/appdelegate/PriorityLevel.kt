@@ -1,4 +1,4 @@
-package com.jaydroid.base_component.app.appdelegate
+package com.jaydroid.base_lib.app.appdelegate
 
 import androidx.annotation.StringDef
 

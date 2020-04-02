@@ -1,9 +1,8 @@
-package com.jaydroid.base_component.app.appdelegate
+package com.jaydroid.base_lib.app.appdelegate
 
 import android.content.Context
 import android.content.pm.PackageManager
 import android.util.Log
-import com.jaydroid.base_lib.app.appdelegate.IAppLife
 import java.util.*
 
 /**

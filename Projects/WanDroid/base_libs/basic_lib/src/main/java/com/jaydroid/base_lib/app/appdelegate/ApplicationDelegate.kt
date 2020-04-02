@@ -1,10 +1,9 @@
-package com.jaydroid.base_component.app.appdelegate
+package com.jaydroid.base_lib.app.appdelegate
 
 import android.app.Application
 import android.content.Context
 import android.content.res.Configuration
 import android.util.Log
-import com.jaydroid.base_lib.app.appdelegate.IAppLife
 
 /**
  * Application 分发代理类

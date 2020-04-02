@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.jaydroid.main">
+    package="com.jaydroid.main"> <!--TODO 1. 修改包名，避免安装冲突 -->
 
+    <!--region TODO 2. 修改权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <!--endregion-->
 
     <application
         android:name="com.jaydroid.base_component_wan.application.WanApp"
@@ -19,6 +23,7 @@
             android:name=".main.MainActivity"
             android:launchMode="singleInstance" />
 
+        <!--region TODO 3. 修改入口Activity -->
         <activity
             android:name=".main.SplashActivity"
             android:theme="@style/component_base_full_screen_style">
@@ -29,6 +34,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--endregion-->
+
+
     </application>
 
 </manifest>

@@ -1,11 +1,8 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
-
 apply plugin: 'kotlin-kapt'
-
+apply plugin: 'com.jakewharton.butterknife'
 
 
 android {
@@ -45,18 +42,10 @@ android {
 
 dependencies {
 
-    //继承调试
-    if (!isBuildModule.toBoolean()) {
-        /**
-         * ProjectB主业务组件
-         */
-        implementation project(path: ':biz_components:main')
-    }
-
     /**
-     * 单项目公共业务组件
+     * 主业务组件
      */
-    implementation project(path: ':base_components:base_component_wan')
+    implementation project(path: ':biz_components:main')
 
 
     //初始的依赖

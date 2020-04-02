@@ -4,9 +4,9 @@ import android.app.Application
 import android.content.Context
 import android.content.res.Configuration
 import android.util.Log
-import com.jaydroid.base_component.app.appdelegate.PriorityLevel
 import com.jaydroid.base_component.network.default_net.DefaultNetFactory
 import com.jaydroid.base_lib.app.appdelegate.IAppLife
+import com.jaydroid.base_lib.app.appdelegate.PriorityLevel
 import com.jaydroid.base_lib.utils.Utils
 
 /**
@@ -25,7 +25,9 @@ class BaseComponentApp : IAppLife {
 
     override fun onCreate(application: Application) {
         Log.d(TAG, "onCreate")
+        //初始化工具类
         Utils.init(application)
+        //初始化网络库
         DefaultNetFactory.initialize(application)
 
     }
@@ -36,17 +38,20 @@ class BaseComponentApp : IAppLife {
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Log.d(TAG, "onConfigurationChanged")
     }
 
     override fun onLowMemory() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Log.d(TAG, "onLowMemory")
     }
 
     override fun onTrimMemory(level: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Log.d(TAG, "onTrimMemory")
     }
 
+    /**
+     * 设置该appLife的优先级，必须设置，否则不会回调
+     */
     override fun onPriority(): String {
         return PriorityLevel.MEDIUM
     }

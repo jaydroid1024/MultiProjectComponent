@@ -7,16 +7,21 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import butterknife.BindView
+import com.alibaba.android.arouter.facade.Postcard
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.jaydroid.login.R
-import com.jaydroid.login.user.contract.LoginContract
-import com.jaydroid.login.user.presenter.LoginPresenter
+import com.alibaba.android.arouter.facade.callback.NavigationCallback
 import com.jaydroid.base_component.arouter.ARouterHelper
 import com.jaydroid.base_component.arouter.ARouterHelper.Path.REGISTER_ACTIVITY_PATH
 import com.jaydroid.base_component.base.mvp.BaseMVPActivity
 import com.jaydroid.base_component.network.bean.wan.User
 import com.jaydroid.base_component.widget.ClearEditText
 import com.jaydroid.base_component.widget.LoginView
+import com.jaydroid.base_lib.utils.L
+import com.jaydroid.login.R
+import com.jaydroid.login.R2
+import com.jaydroid.login.user.contract.LoginContract
+import com.jaydroid.login.user.presenter.LoginPresenter
 
 @Route(path = ARouterHelper.Path.LOGIN_ACTIVITY_PATH)
 class LoginActivity : BaseMVPActivity<LoginContract.View, LoginPresenter>(),
@@ -26,10 +31,12 @@ class LoginActivity : BaseMVPActivity<LoginContract.View, LoginPresenter>(),
     private lateinit var passwordEditText: ClearEditText
     private lateinit var loginView: LoginView
     private lateinit var registerTxtView: TextView
-    private lateinit var closeImgView: ImageView
+
+    @BindView(R2.id.iv_login_close)
+    lateinit var closeImgView: ImageView
 
     override fun getLayoutResId(): Int {
-        return R.layout.activity_login
+        return R2.layout.activity_login
     }
 
     override fun createPresenter(): LoginPresenter {
@@ -37,7 +44,6 @@ class LoginActivity : BaseMVPActivity<LoginContract.View, LoginPresenter>(),
     }
 
     override fun initView() {
-        closeImgView = findViewById(R.id.iv_login_close)
         usernameEditText = findViewById(R.id.cet_login_username)
         passwordEditText = findViewById(R.id.cet_login_password)
         loginView = findViewById(R.id.lv_login)
@@ -101,13 +107,39 @@ class LoginActivity : BaseMVPActivity<LoginContract.View, LoginPresenter>(),
     }
 
     override fun onLoginResult(username: String, user: User?) {
-        ARouterHelper.routerTo(ARouterHelper.Path.HOME_ACTIVITY_PATH)
-        finish()
+
+        ARouterHelper.routerTo(
+            ARouterHelper.Path.HOME_ACTIVITY_PATH,
+            this,
+            object : NavigationCallback {
+                override fun onLost(postcard: Postcard?) {
+                    L.d(TAG, "onLost:${postcard?.path}")
+                }
+
+                override fun onFound(postcard: Postcard?) {
+                    L.d(TAG, "onFound:${postcard?.path}")
+                    finish()
+                }
+
+                override fun onInterrupt(postcard: Postcard?) {
+                    L.d(TAG, "onInterrupt:${postcard?.path}")
+                }
+
+                override fun onArrival(postcard: Postcard?) {
+                    L.d(TAG, "onArrival:${postcard?.path}")
+                }
+
+            })
     }
 
 
     override fun onDestroy() {
         super.onDestroy()
         loginView.release()
+    }
+
+    companion object {
+
+        const val TAG = "Login"
     }
 }

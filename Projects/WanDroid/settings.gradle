@@ -1,6 +1,8 @@
 rootProject.name = 'ProjectB'
 //宿主壳和调试壳
-include ':app:wan'
+include ':app:wan',
+        ':app:app_main',
+        ':app:app_login'
 //常规业务组件
 include ':biz_components:login',
         ':biz_components:main'
